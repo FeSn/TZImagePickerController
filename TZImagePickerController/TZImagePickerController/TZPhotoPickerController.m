@@ -560,7 +560,11 @@ static CGFloat itemMargin = 5;
         if (tzImagePickerVc.takeVideo) {
             cell.imageView.image = tzImagePickerVc.takeVideo;
         } else {
-            cell.imageView.image = [UIImage tz_imageNamedFromMyBundle:tzImagePickerVc.takePictureImageName];
+            if (tzImagePickerVc.takePictureImage) {
+                cell.imageView.image = tzImagePickerVc.takePictureImage;
+            } else {
+                cell.imageView.image = [UIImage tz_imageNamedFromMyBundle:tzImagePickerVc.takePictureImageName];
+            }
         }
         cell.imageView.backgroundColor = tzImagePickerVc.oKButtonBackGroundColorDisabled;
         return cell;
